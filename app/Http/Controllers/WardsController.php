@@ -24,7 +24,7 @@ class WardsController extends Controller
     }
 
     public function search(Request $request){
-      switch($request->input('filter'){
+      switch($request->input('filter')){
         case 'county':
           return self::searchFromCounty($request);
         break;
