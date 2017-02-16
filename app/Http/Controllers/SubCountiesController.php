@@ -20,6 +20,13 @@ class SubCountiesController extends Controller
         return Response::json($subcounties);
     }
 
+    public function search(Request $request){
+      switch($request->input('filter'){
+        case 'county':
+          return self::searchFromCounty($request);
+        break;
+      }
+    }
     public function searchFromCounty(Request $request)
     {
       $subcounties = SubCounty::with('county')->county($request->input('county'))->pluck('name');

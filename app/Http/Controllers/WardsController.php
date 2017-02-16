@@ -23,6 +23,17 @@ class WardsController extends Controller
         //
     }
 
+    public function search(Request $request){
+      switch($request->input('filter'){
+        case 'county':
+          return self::searchFromCounty($request);
+        break;
+        case 'subcounty':
+          return self::searchFromSubCounty($request);
+        break;
+      }
+    }
+
     public function searchFromCounty(Request $request)
     {
       $wards = Ward::with('county')->county($request->input('county'))->pluck('name');

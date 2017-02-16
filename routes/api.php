@@ -20,9 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('counties','CountiesController');
 Route::get('subcounties/all','SubCountiesController@index');
 
-Route::get('subcounties/searchCounty','SubCountiesController@searchFromCounty');
+Route::get('subcounties/search','SubCountiesController@search');
 
-Route::get('wards/searchCounty','WardsController@searchFromCounty');
-Route::get('wards/searchSubCounty','WardsController@searchFromSubCounty');
+Route::get('wards/search','WardsController@search');
 
 Route::get('wards/scrape','WardsController@scrape');
