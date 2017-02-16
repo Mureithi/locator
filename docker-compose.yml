@@ -1,0 +1,9 @@
+locator:
+  container_name: locator
+  image: cheezykins/laravel
+  volumes:
+    - /private/var/www/personal/locator:/var/www/html
+  ports:
+    - 9500:80
+  external_links:
+    - mysql:mysql
